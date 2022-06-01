@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blong Pong!</title>
+        <style>
+            html {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                height: 100%;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .fill {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: opacity 0.4s;
+                opacity: 0;
+            }
+
+            canvas {
+                height: 100%;
+                transition: opacity 0.4s;
+                opacity: 0;
+            }
+
+            canvas.show {
+                opacity: 1;
+                z-index: 99;
+            }
+
+            img.hide {
+                display: none;
+            }
+
+            .fill.show {
+                display: block;
+                opacity: 1;
+                z-index: 100;
+            }
+
+            #background-video {
+                height: 100vh;
+                width: 100vw;
+                object-fit: cover;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -2;
+            }
+
+            #background-video-block {
+                height: 100vh;
+                width: 100vw;
+                object-fit: cover;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <video
+            id="background-video"
+            autoplay
+            loop
+            muted
+            poster="https://assets.codepen.io/6093409/river.jpg"
+        >
+            <source src="assets/videos/background.mp4" type="video/mp4" />
+        </video>
+        <div id="background-video-block"></div>
+        <div class="fill" id="gameOverFill">GAME OVER SCREEN</div>
+        <div class="fill" id="startFill">START SCREEN</div>
+        <div class="fill" id="tutorialFill"></div>
+        <div class="fill" id="leaderboardFill">
+            <img
+                src="assets/fills/instructions.png"
+                style="aspect-ratio: 1400 / 1000; height: 100%"
+            />
+            <img
+                src="assets/buttons/ok.png"
+                style="
+                    position: fixed;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: calc((100% / 1000) * 200);
+                    height: calc((100% / 1000) * 100);
+                "
+                id="leaderboardOkButton"
+            />
+        </div>
+        <canvas width="1400px" height="1000px"></canvas>
+        <img
+            class="hide"
+            src="assets/images/blong.png"
+            alt="Blong"
+            id="blong-image"
+        />
+        <img
+            class="hide"
+            src="assets/images/paddle.png"
+            alt="Paddle"
+            id="paddle-image"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_0.png"
+            id="letter-zero"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_1.png"
+            id="letter-one"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_2.png"
+            id="letter-two"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_3.png"
+            id="letter-three"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_4.png"
+            id="letter-four"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_5.png"
+            id="letter-five"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_6.png"
+            id="letter-six"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_7.png"
+            id="letter-seven"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_8.png"
+            id="letter-eight"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_9.png"
+            id="letter-nine"
+        />
+        <img
+            class="hide"
+            src="assets/images/letters/BlongPong Font_-_-.png"
+            id="letter-colon"
+        />
+        <script src="main.js"></script>
+    </body>
+</html>
